@@ -1,13 +1,12 @@
 <script setup>
-import test1 from './test1.vue'
+import test from './test.vue'
 import { ref, nextTick } from 'vue'
 
 defineProps({
-  msg: String
+  hasTitle: Boolean
 })
 
 const count = ref(1)
-const hasTitle = ref(true)
 let start;
 const addNum = () => {
    if(count.value ===1)  start = performance.now();
@@ -24,11 +23,11 @@ const addNum = () => {
 </script>
 
 <template>
-  <div className="app">
-    <test1 :count="count" :hasTitle="hasTitle"/>
+  <div>
+    <h1 v-if="hasTitle">test</h1>
+    <h2 v-else>没有title</h2>
+    <test :count="count"/>
     <button type="button" @click="addNum">+1</button>
-    <br/>
-    <button type="button" @click="hasTitle=!hasTitle">确认</button>
   </div>
 </template>
 
