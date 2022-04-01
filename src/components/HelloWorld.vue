@@ -6,7 +6,7 @@ defineProps({
   msg: String
 })
 
-const count = ref(0)
+const count = ref(1)
 const hasTitle = ref(true)
 let start;
 const addNum = () => {
